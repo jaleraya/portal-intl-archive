@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速 · 稳定入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f4f6;
+      color: #2c3e4f;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* hero 区域 ———— 简洁留白 */
+    .hero {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1e2a36;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #5f6b7a;
+      max-width: 90%;
+    }
+
+    /* 卡片通用规则 — 浅灰背景、细边框、柔和阴影 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3e7ec;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1f2b38;
+      border-left: 3px solid #7f8c9b;
+      padding-left: 0.9rem;
+    }
+
+    .card p {
+      margin-bottom: 1.0rem;
+      color: #3d4b5a;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用块 — 提示感 */
+    .callout {
+      background: #edf1f5;
+      border-left: 4px solid #7f8c9b;
+      border-radius: 0 12px 12px 0;
+      padding: 1.2rem 1.6rem;
+      margin: 1.5rem 0 0.8rem;
+      color: #2c3e4f;
+      font-style: normal;
+    }
+
+    .callout strong {
+      font-weight: 500;
+      color: #1e2a36;
+    }
+
+    .callout a {
+      color: #2b4a6f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 450;
+    }
+
+    .callout a:hover {
+      color: #0f2b44;
+      text-decoration-thickness: 2px;
+    }
+
+    /* 内嵌链接 — 自然融入句子 */
+    .inline-link {
+      color: #2b4a6f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 450;
+      transition: color 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #0f2b44;
+      text-decoration-thickness: 2px;
+    }
+
+    /* 特点列表 — 极简无标记 */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.65rem;
+      color: #3d4b5a;
+    }
+
+    .feature-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #7f8c9b;
+    }
+
+    /* FAQ 摘要 — 紧凑 */
+    .faq-item {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1f2b38;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-item p {
+      margin: 0 0 0.8rem 0;
+      color: #4a5b6b;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e0e5eb;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* 页脚 — 轻量 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #778695;
+      margin-top: 3rem;
+      border-top: 1px solid #e0e5eb;
+      padding-top: 2rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.5rem 1rem 3rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>雷速 · 稳定入口</h1>
+      <div class="sub">一份关于访问与使用的温和说明</div>
+    </div>
+
+    <!-- 第一张卡片：文章导语 + 正文 -->
+    <div class="card">
+      <h2>从一处安静的起点开始</h2>
+      <p>
+        网站入口的稳定性，往往比功能堆叠更能决定日常使用的体验。很多时候，我们需要的只是一个清晰、可靠的起点，不必在多个地址之间反复确认。
+        <a href="https://portal-intl-leisu.com" class="inline-link">雷速</a> 所提供的，正是这样一种安静而持续的存在：一个固定的页面，承载着必要的引导与信息。
+      </p>
+      <p>
+        这份页面不是功能的中转站，而更像一份静态的说明 —— 告诉你可以从哪里开始，以及页面本身包含哪些内容。没有弹窗，没有复杂的跳转逻辑，只有文字与链接构成的简明叙述。
+      </p>
+    </div>
+
+    <!-- 第二张卡片：特点 / 从稳定入口展开 -->
+    <div class="card">
+      <h2>页面说明 · 入口的意义</h2>
+      <p>
+        所谓「稳定入口」，并非指一个无法变更的网址，而是指这个页面本身的结构与信息不随时间频繁漂移。无论何时打开，你都能找到相同的分区、一致的表述，以及指向同一处资源的链接。
+      </p>
+      <ul class="feature-list">
+        <li>内容以说明性为主，不依赖时效性公告</li>
+        <li>链接指向固定地址，减少记忆负担</li>
+        <li>卡片式布局，便于快速浏览段落大意</li>
+        <li>视觉风格克制，不干扰阅读注意力</li>
+      </ul>
+      <div class="callout">
+        <strong>提示</strong> — 如果你正在寻找一个长期可用的信息页，可以直接将 
+        <a href="https://portal-intl-leisu.com">雷速</a> 加入书签。页面本身不会频繁改版，链接结构也保持简单。
+      </div>
+    </div>
+
+    <!-- 第三张卡片：使用场景（多段正文 + 引用） -->
+    <div class="card">
+      <h2>适合这样的时刻</h2>
+      <p>
+        当你需要向他人推荐一个清晰、无干扰的说明页时，这个页面可以成为一个不错的起点。它不要求访问者注册或登录，也没有强制性的引导流程 —— 打开之后，阅读或离开，都由你自己决定。
+      </p>
+      <p>
+        另外，如果你习惯在浏览器中保留一组长期有效的标签页，那么把 
+        <a href="https://portal-intl-leisu.com" class="inline-link">雷速</a> 放在书签栏中，每次需要回顾入口信息时，就能直接点开，不必重新搜索或翻找历史记录。
+      </p>
+      <blockquote class="callout">
+        <strong>一点观察</strong> — 好的入口页面往往并不显眼。它只是安静地待在那里，等你需要的时候，随时可以打开。
+      </blockquote>
+    </div>
+
+    <!-- 第四张卡片：FAQ 摘要（非完整FAQ，只取关键问答） -->
+    <div class="card">
+      <h2>常见疑问 · 简短摘要</h2>
+      <div class="faq-item">
+        <strong>这个页面会经常变化吗？</strong>
+        <p>不会。页面内容以静态说明为主，不跟随短期活动更新。结构变更前会保持现有版本至少数月。</p>
+      </div>
+      <div class="faq-item">
+        <strong>链接是否长期有效？</strong>
+        <p>主链接指向固定域名，只要域名服务正常，链接即可访问。建议以 <a href="https://portal-intl-leisu.com" class="inline-link">雷速</a> 作为唯一入口。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否需要安装任何工具？</strong>
+        <p>不需要。页面为纯 HTML，所有内容直接在浏览器中渲染，无需额外插件或客户端。</p>
+      </div>
+    </div>
+
+    <!-- 一句访问句 / 收尾 -->
+    <hr>
+    <p style="font-size: 1rem; color: #3d4b5a; text-align: center; max-width: 85%; margin: 0 auto 0.5rem;">
+      如果你已经准备好，随时可以前往 <a href="https://portal-intl-leisu.com" class="inline-link">雷速</a> 翻看页面本身。
+    </p>
+    <p style="font-size: 0.9rem; color: #5f6b7a; text-align: center; margin-top: 0.3rem;">
+      不需要额外的准备，浏览器打开即是。
+    </p>
+
+    <!-- footer -->
+    <div class="footer-note">
+      <span>雷速 · 页面说明 · 内容稳定</span>
+    </div>
+
+  </div>
+</body>
+</html>
